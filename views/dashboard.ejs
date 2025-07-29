@@ -1,0 +1,35 @@
+<%- include('./partials/header', { user: user }) %>
+<%- include('./partials/notifications', { success: success, error: error }) %>
+<div style="text-align: center;">
+<h1>Welcome, <span style="color: green;"><%= user.username %></span>!</h1>
+</div>
+<h1><i class="bi bi-person-circle"></i> My Shayaris</h1>
+<div class="my-4">
+  <a href="/post" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Post New Shayari</a>
+</div>
+<div class="row">
+  <% shayaris.forEach(shayari => { %>
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <p class="card-text" id="shayari-text-<%= shayari._id %>"><%= shayari.content %></p>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+          <div>
+            <a href="/edit/<%= shayari._id %>" class="btn btn-warning btn-sm me-2"><i class="bi bi-pencil-square"></i> Edit</a>
+            <form method="POST" action="/delete/<%= shayari._id %>" class="d-inline" onsubmit="return confirm('Delete this shayari?')">
+              <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Delete</button>
+            </form>
+          </div>
+          <button class="btn btn-outline-secondary btn-sm copy-btn" data-id="<%= shayari._id %>" title="Copy Shayari">
+            <i class="bi bi-clipboard"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  <% }) %>
+</div>
+<%- include('./partials/footer') %>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/main.js"></script>
+</body></html>
