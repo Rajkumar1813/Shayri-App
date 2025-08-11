@@ -1,6 +1,6 @@
 <%- include('./partials/header', { user: user }) %>
 <%- include('./partials/notifications', { success: success, error: error }) %>
-<marquee class="mt-2 mb-4 text-danger text-bold" direction="right" scrollamount="1">You Can Post Your Thoughts <i class="bi bi-envelope-open-heart"></i> Here..!</marquee>
+<marquee class="mt-2 mb-4 text-danger text-bold" direction="right" scrollamount="5">You Can Post Your Thoughts <i class="bi bi-envelope-open-heart"></i> Here..!</marquee>
 <h1 class="mb-4"><i class="bi bi-pen"></i> Latest Shayaris</h1>
 <div class="row">
   <% shayaris.forEach(shayari => { %>
@@ -29,4 +29,5 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/js/main.js"></script>
 </body></html>
+
 
